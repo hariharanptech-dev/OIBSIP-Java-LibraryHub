@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Create account', ~{::main}, 'register')}">
+<head><title>Create account</title></head>
+<body>
+<main id="main" class="auth-page" tabindex="-1">
+    <div class="auth-card">
+        <header class="auth-head">
+            <h1>Create your account</h1>
+            <p class="muted">A member account lets you borrow books and keep track of your loans.</p>
+        </header>
+
+        <form th:action="@{/register}" th:object="${form}" method="post" class="form" novalidate
+              data-validate data-password-rules>
+            <div class="field" th:classappend="${#fields.hasErrors('name')} ? 'has-error'">
+                <label for="name">Full name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required maxlength="80"
+                       th:value="*{name}" aria-describedby="name-error"
+                       th:attr="aria-invalid=${#fields.hasErrors('name') ? 'true' : 'false'}">
+                <p class="field-error" id="name-error"
+                   th:text="${#fields.hasErrors('name') ? #fields.errors('name')[0] : ''}"
+                   th:hidden="${!#fields.hasErrors('name')}"></p>
+            </div>
+
+            <div class="field" th:classappend="${#fields.hasErrors('email')} ? 'has-error'">
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email" autocomplete="email" required maxlength="120"
+                       th:value="*{email}" aria-describedby="email-error"
+                       th:attr="aria-invalid=${#fields.hasErrors('email') ? 'true' : 'false'}">
+                <p class="field-error" id="email-error"
+                   th:text="${#fields.hasErrors('email') ? #fields.errors('email')[0] : ''}"
+                   th:hidden="${!#fields.hasErrors('email')}"></p>
+            </div>
+
+            <div class="field" th:classappend="${#fields.hasErrors('password')} ? 'has-error'">
+                <label for="password">Password</label>
+                <div class="input-group">
+                    <input id="password" name="password" type="password" autocomplete="new-password" required
+                           maxlength="72" aria-describedby="password-error password-strength"
+                           th:attr="aria-invalid=${#fields.hasErrors('password') ? 'true' : 'false'}">
+                    <button type="button" class="input-toggle" data-toggle-password="password" aria-label="Show password">
+                        <svg class="icon icon-eye" aria-hidden="true"><use href="#i-eye"/></svg>
+                        <svg class="icon icon-eye-off" aria-hidden="true"><use href="#i-eye-off"/></svg>
+                    </button>
+                </div>
+                <div class="strength" id="password-strength" data-strength-for="password" data-level="0">
+                    <div class="strength-bar" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+                    <p class="strength-text" aria-live="polite">Use 8 or more characters with letters and numbers.</p>
+                </div>
+                <p class="field-error" id="password-error"
+                   th:text="${#fields.hasErrors('password') ? #fields.errors('password')[0] : ''}"
+                   th:hidden="${!#fields.hasErrors('password')}"></p>
+            </div>
+
+            <div class="field" th:classappend="${#fields.hasErrors('confirmPassword')} ? 'has-error'">
+                <label for="confirmPassword">Confirm password</label>
+                <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" required
+                       maxlength="72" aria-describedby="confirmPassword-error"
+                       th:attr="aria-invalid=${#fields.hasErrors('confirmPassword') ? 'true' : 'false'}">
+                <p class="field-error" id="confirmPassword-error"
+                   th:text="${#fields.hasErrors('confirmPassword') ? #fields.errors('confirmPassword')[0] : ''}"
+                   th:hidden="${!#fields.hasErrors('confirmPassword')}"></p>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+                <span class="btn-label">Create account</span>
+                <span class="spinner" aria-hidden="true"></span>
+            </button>
+        </form>
+
+        <p class="auth-switch">Already have an account? <a th:href="@{/login}">Sign in</a></p>
+    </div>
+</main>
+</body>
+</html>

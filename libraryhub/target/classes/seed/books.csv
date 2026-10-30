@@ -1,0 +1,62 @@
+category|title|author|isbn|year|publisher|quantity|description
+Computer Science|Clean Code|Robert C. Martin|9780132350884|2008|Prentice Hall|3|Practical principles for writing readable, maintainable code, with worked refactoring examples.
+Computer Science|The Pragmatic Programmer|David Thomas, Andrew Hunt|9780135957059|2019|Addison-Wesley|2|Tips and habits for becoming a more effective, adaptable software craftsperson.
+Computer Science|Introduction to Algorithms|Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein|9780262033848|2009|MIT Press|2|The standard university reference on algorithms, data structures, and how to analyse them.
+Computer Science|Design Patterns: Elements of Reusable Object-Oriented Software|Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides|9780201633610|1994|Addison-Wesley|1|A catalogue of twenty-three classic object-oriented design patterns and when to use them.
+Computer Science|Structure and Interpretation of Computer Programs|Harold Abelson, Gerald Jay Sussman|9780262510875|1996|MIT Press|2|A foundational course in programming ideas, abstraction, and building interpreters.
+Computer Science|Designing Data-Intensive Applications|Martin Kleppmann|9781449373320|2017|O'Reilly Media|3|How storage, replication, and stream processing work inside reliable, scalable data systems.
+Computer Science|Effective Java|Joshua Bloch|9780134685991|2018|Addison-Wesley|4|Ninety items of practical advice for writing clear, correct, and robust Java.
+Computer Science|The C Programming Language|Brian W. Kernighan, Dennis M. Ritchie|9780131103627|1988|Prentice Hall|2|The concise, classic introduction to C, written by the language's creators.
+Computer Science|Refactoring|Martin Fowler|9780134757599|2018|Addison-Wesley|2|A catalogue of small, safe code changes that improve structure without altering behaviour.
+Computer Science|Artificial Intelligence: A Modern Approach|Stuart Russell, Peter Norvig|9780134610993|2020|Pearson|2|A broad university textbook covering search, learning, reasoning, and intelligent agents.
+Computer Science|Python Crash Course|Eric Matthes|9781593279288|2019|No Starch Press|3|A hands-on introduction to Python through projects, including a game and a web app.
+Fiction|1984|George Orwell|9780451524935|1949|Signet Classics|5|A dystopian novel about surveillance, propaganda, and the fragility of truth.
+Fiction|To Kill a Mockingbird|Harper Lee|9780061120084|1960|Harper Perennial|4|A young girl in the American South watches her father defend a wrongly accused man.
+Fiction|The Great Gatsby|F. Scott Fitzgerald|9780743273565|1925|Scribner|3|A story of wealth, longing, and illusion in Jazz Age New York.
+Fiction|Pride and Prejudice|Jane Austen|9780141439518|1813|Penguin Classics|3|Elizabeth Bennet and Mr Darcy navigate manners, money, and first impressions.
+Fiction|The Alchemist|Paulo Coelho|9780062315007|1988|HarperOne|4|A shepherd boy travels from Spain to Egypt in search of his personal legend.
+Fiction|The Hobbit|J.R.R. Tolkien|9780547928227|1937|Houghton Mifflin Harcourt|3|Bilbo Baggins joins a company of dwarves on a quest to reclaim a lost treasure.
+Fiction|One Hundred Years of Solitude|Gabriel García Márquez|9780060883287|1967|Harper Perennial|2|Seven generations of the Buendía family live and fall in the mythical town of Macondo.
+Fiction|The God of Small Things|Arundhati Roy|9780812979657|1997|Random House|2|Twins in Kerala live with the consequences of a single tragic week in 1969.
+Science|A Brief History of Time|Stephen Hawking|9780553380163|1988|Bantam|3|An accessible tour of black holes, the Big Bang, and the nature of time.
+Science|Cosmos|Carl Sagan|9780345539434|1980|Ballantine Books|2|A sweeping story of the universe and humanity's place in it.
+Science|The Selfish Gene|Richard Dawkins|9780198788607|1976|Oxford University Press|2|Evolution explained from the point of view of genes rather than organisms.
+Science|Astrophysics for People in a Hurry|Neil deGrasse Tyson|9780393609394|2017|W. W. Norton|4|The big ideas of modern astrophysics in short, readable chapters.
+Science|Surely You're Joking, Mr. Feynman!|Richard P. Feynman|9780393316049|1985|W. W. Norton|2|Anecdotes from the life of a curious, mischievous Nobel-winning physicist.
+Science|The Elegant Universe|Brian Greene|9780393338102|1999|W. W. Norton|1|An introduction to superstring theory and the search for a unified physics.
+Science|Silent Spring|Rachel Carson|9780618249060|1962|Houghton Mifflin|2|The book that exposed the harm done by pesticides and helped launch the environmental movement.
+History|Sapiens: A Brief History of Humankind|Yuval Noah Harari|9780062316110|2011|Harper|5|A sweeping account of how Homo sapiens came to dominate the planet.
+History|Guns, Germs, and Steel|Jared Diamond|9780393317558|1997|W. W. Norton|3|Why some societies developed power and technology faster than others.
+History|India After Gandhi|Ramachandra Guha|9780060958589|2007|Ecco|2|The history of independent India and how its democracy endured.
+History|A People's History of the United States|Howard Zinn|9780062397348|1980|Harper Perennial|2|American history told from the perspective of workers, women, and marginalised groups.
+History|The Guns of August|Barbara W. Tuchman|9780345476098|1962|Presidio Press|1|A narrative history of the first month of the First World War.
+History|SPQR: A History of Ancient Rome|Mary Beard|9781631492228|2015|Liveright|2|A fresh account of how a small Italian town grew into an empire.
+Biography|Wings of Fire|A. P. J. Abdul Kalam|9788173711466|1999|Universities Press|4|The autobiography of the scientist and president who led India's missile programme.
+Biography|Steve Jobs|Walter Isaacson|9781451648539|2011|Simon & Schuster|3|The authorised biography of Apple's co-founder, built from interviews over two years.
+Biography|The Diary of a Young Girl|Anne Frank|9780553296983|1947|Bantam|3|A teenager's diary, written while hiding from the Nazis in Amsterdam.
+Biography|Long Walk to Freedom|Nelson Mandela|9780316548182|1994|Little, Brown|2|Mandela's own story, from a rural childhood to prison and the presidency.
+Biography|Becoming|Michelle Obama|9781524763138|2018|Crown|3|A memoir of growing up in Chicago and of life in the White House.
+Biography|Educated|Tara Westover|9780399590504|2018|Random House|2|A memoir of a woman who leaves a survivalist family and goes on to earn a doctorate.
+Biography|An Autobiography: The Story of My Experiments with Truth|Mohandas K. Gandhi|9780807059098|1927|Beacon Press|3|Gandhi reflects on his early life and the development of his ideas.
+Business|The Lean Startup|Eric Ries|9780307887894|2011|Crown Business|3|A method for building products through rapid experiments and validated learning.
+Business|Zero to One|Peter Thiel, Blake Masters|9780804139298|2014|Crown Business|2|Notes on building companies that create something genuinely new.
+Business|Good to Great|Jim Collins|9780066620992|2001|HarperBusiness|2|What separates companies that make a lasting leap in performance from those that do not.
+Business|Rich Dad Poor Dad|Robert T. Kiyosaki|9781612680194|1997|Plata Publishing|4|Lessons about money, assets, and financial education from two contrasting mentors.
+Business|Thinking, Fast and Slow|Daniel Kahneman|9780374533557|2011|Farrar, Straus and Giroux|1|How intuition and deliberate reasoning shape our judgements and decisions.
+Business|The Intelligent Investor|Benjamin Graham|9780060555665|1949|HarperBusiness|2|The classic guide to value investing and avoiding costly mistakes.
+Business|The Psychology of Money|Morgan Housel|9780857197689|2020|Harriman House|4|Short stories about why behaviour matters more than knowledge in personal finance.
+Business|Start with Why|Simon Sinek|9781591846444|2009|Portfolio|2|How leaders inspire action by starting with purpose rather than product.
+Self-Help|Atomic Habits|James Clear|9780735211292|2018|Avery|4|A practical system for building good habits and breaking bad ones through small changes.
+Self-Help|The 7 Habits of Highly Effective People|Stephen R. Covey|9781982137274|1989|Simon & Schuster|3|Principles for personal effectiveness built around character and proactive habits.
+Self-Help|How to Win Friends and Influence People|Dale Carnegie|9780671027032|1936|Pocket Books|3|Timeless advice on communication, empathy, and building good relationships.
+Self-Help|Deep Work|Cal Newport|9781455586691|2016|Grand Central Publishing|2|Why focused, distraction-free work is rare and valuable, and how to cultivate it.
+Self-Help|Man's Search for Meaning|Viktor E. Frankl|9780807014295|1946|Beacon Press|3|A psychiatrist's account of surviving the camps and finding purpose in suffering.
+Self-Help|Mindset|Carol S. Dweck|9780345472328|2006|Ballantine Books|2|How believing that abilities can grow changes the way we learn and achieve.
+Self-Help|Ikigai|Héctor García, Francesc Miralles|9780143130727|2016|Penguin Books|3|Lessons from Japan's long-lived communities on finding purpose and joy in daily life.
+Mathematics|Fermat's Last Theorem|Simon Singh|9780385493628|1997|Anchor Books|2|The story of the 350-year search for a proof of one of mathematics' greatest puzzles.
+Mathematics|Concrete Mathematics|Ronald L. Graham, Donald E. Knuth, Oren Patashnik|9780201558029|1989|Addison-Wesley|1|A foundation for computer science covering sums, recurrences, and generating functions.
+Mathematics|How to Solve It|George Pólya|9780691164076|1945|Princeton University Press|3|A classic method for approaching and solving mathematical problems.
+Mathematics|The Joy of x|Steven Strogatz|9780544105850|2012|Houghton Mifflin Harcourt|2|A guided tour of mathematical ideas, from numbers to calculus, for general readers.
+Mathematics|Naked Statistics|Charles Wheelan|9780393347777|2013|W. W. Norton|3|Statistics explained without the dread, using everyday examples.
+Mathematics|Gödel, Escher, Bach|Douglas R. Hofstadter|9780465026562|1979|Basic Books|1|An exploration of logic, symmetry, and self-reference across maths, art, and music.
+Mathematics|The Man Who Knew Infinity|Robert Kanigel|9780671750619|1991|Washington Square Press|2|The life of Srinivasa Ramanujan and his partnership with G. H. Hardy.

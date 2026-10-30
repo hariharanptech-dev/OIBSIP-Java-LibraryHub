@@ -1,0 +1,154 @@
+/* LibraryHub design tokens.
+   Colour, type, spacing, radius, shadow and motion tokens live here and nowhere else.
+   Components in app.css only read these variables. */
+
+:root {
+  color-scheme: light;
+
+  /* Light palette */
+  --bg: #F5F7FB;
+  --surface: #FFFFFF;
+  --surface-2: #F1F4FA;
+  --border: #E2E8F0;
+  --text: #0F172A;
+  --muted: #5B6B82;            /* slightly darker than #64748B so it passes AA on surface-2 */
+
+  --primary: #4F46E5;
+  --primary-hover: #4338CA;
+  --primary-btn: #4F46E5;
+  --violet-btn: #7C3AED;
+  --on-primary: #FFFFFF;
+  --accent: #0E7490;
+  --link: #4338CA;
+  --focus: #4F46E5;
+
+  --success: #15803D;
+  --warning: #B45309;
+  --danger: #DC2626;
+  --danger-btn: #DC2626;
+  --success-text: #166534;
+  --warning-text: #92400E;
+  --danger-text: #B91C1C;
+  --info-text: #3730A3;
+  --success-soft: rgba(21, 128, 61, 0.12);
+  --warning-soft: rgba(180, 83, 9, 0.12);
+  --danger-soft: rgba(220, 38, 38, 0.10);
+  --info-soft: rgba(79, 70, 229, 0.10);
+
+  --shadow-1: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.08);
+  --shadow-2: 0 4px 8px rgba(15, 23, 42, 0.06), 0 12px 24px rgba(15, 23, 42, 0.10);
+  --overlay: rgba(15, 23, 42, 0.45);
+  --hero-glow: radial-gradient(60rem 28rem at 20% -10%, rgba(99, 102, 241, 0.16), transparent 60%),
+               radial-gradient(40rem 24rem at 95% 0%, rgba(124, 58, 237, 0.12), transparent 60%);
+
+  /* Typography */
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fs-display: clamp(2rem, 5vw + 0.5rem, 2.75rem);
+  --fs-h1: clamp(1.625rem, 3vw + 0.5rem, 2rem);
+  --fs-h2: 1.5rem;
+  --fs-h3: 1.125rem;
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-caption: 0.75rem;
+  --lh-tight: 1.25;
+  --lh-body: 1.6;
+
+  /* Spacing (8px scale, with a 4px half step) */
+  --space-half: 0.25rem;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 2.5rem;
+  --space-6: 3rem;
+  --space-8: 4rem;
+
+  /* Radius */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+
+  /* Motion */
+  --dur-fast: 120ms;
+  --dur: 200ms;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* Layout */
+  --content-max: 1200px;
+  --sidebar-w: 260px;
+  --tap: 44px;
+}
+
+/* Dark palette: used when the saved or system theme is dark. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0B1020;
+  --surface: #121A2F;
+  --surface-2: #19233D;
+  --border: #26324F;
+  --text: #F1F5F9;
+  --muted: #94A3B8;
+
+  --primary: #6366F1;
+  --primary-hover: #818CF8;
+  --primary-btn: #5558E6;
+  --violet-btn: #7C3AED;
+  --accent: #22D3EE;
+  --link: #818CF8;
+  --focus: #818CF8;
+
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+  --success-text: #4ADE80;
+  --warning-text: #FBBF24;
+  --danger-text: #F87171;
+  --info-text: #A5B4FC;
+  --success-soft: rgba(34, 197, 94, 0.16);
+  --warning-soft: rgba(245, 158, 11, 0.16);
+  --danger-soft: rgba(239, 68, 68, 0.16);
+  --info-soft: rgba(99, 102, 241, 0.20);
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.30);
+  --shadow-2: 0 4px 8px rgba(0, 0, 0, 0.30), 0 16px 32px rgba(0, 0, 0, 0.40);
+  --overlay: rgba(2, 6, 23, 0.65);
+  --hero-glow: radial-gradient(60rem 28rem at 20% -10%, rgba(99, 102, 241, 0.28), transparent 60%),
+               radial-gradient(40rem 24rem at 95% 0%, rgba(34, 211, 238, 0.12), transparent 60%);
+}
+
+/* Same dark palette when JavaScript is off and the system prefers dark. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --bg: #0B1020;
+    --surface: #121A2F;
+    --surface-2: #19233D;
+    --border: #26324F;
+    --text: #F1F5F9;
+    --muted: #94A3B8;
+    --primary: #6366F1;
+    --primary-hover: #818CF8;
+    --primary-btn: #5558E6;
+    --violet-btn: #7C3AED;
+    --accent: #22D3EE;
+    --link: #818CF8;
+    --focus: #818CF8;
+    --success: #22C55E;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+    --success-text: #4ADE80;
+    --warning-text: #FBBF24;
+    --danger-text: #F87171;
+    --info-text: #A5B4FC;
+    --success-soft: rgba(34, 197, 94, 0.16);
+    --warning-soft: rgba(245, 158, 11, 0.16);
+    --danger-soft: rgba(239, 68, 68, 0.16);
+    --info-soft: rgba(99, 102, 241, 0.20);
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.30);
+    --shadow-2: 0 4px 8px rgba(0, 0, 0, 0.30), 0 16px 32px rgba(0, 0, 0, 0.40);
+    --overlay: rgba(2, 6, 23, 0.65);
+    --hero-glow: radial-gradient(60rem 28rem at 20% -10%, rgba(99, 102, 241, 0.28), transparent 60%),
+                 radial-gradient(40rem 24rem at 95% 0%, rgba(34, 211, 238, 0.12), transparent 60%);
+  }
+}

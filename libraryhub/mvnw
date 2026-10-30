@@ -1,0 +1,48 @@
+#!/bin/sh
+# LibraryHub Maven bootstrap script.
+# Downloads the Apache Maven version named in .mvn/wrapper/maven-wrapper.properties
+# once into ~/.m2/wrapper and then runs it with all the arguments you pass.
+set -eu
+
+BASE_DIR=$(cd "$(dirname "$0")" && pwd)
+PROPS="$BASE_DIR/.mvn/wrapper/maven-wrapper.properties"
+
+if [ ! -f "$PROPS" ]; then
+  echo "mvnw: missing $PROPS" >&2
+  exit 1
+fi
+
+DIST_URL=$(sed -n 's/^distributionUrl=//p' "$PROPS" | tr -d '\r' | head -n 1)
+if [ -z "$DIST_URL" ]; then
+  echo "mvnw: distributionUrl is not set in $PROPS" >&2
+  exit 1
+fi
+
+# The properties file names the .zip (used by mvnw.cmd). Unix uses the tar.gz of the same release.
+case "$DIST_URL" in
+  *.zip) DIST_URL="${DIST_URL%.zip}.tar.gz" ;;
+esac
+
+ARCHIVE_NAME=${DIST_URL##*/}
+DIST_NAME=${ARCHIVE_NAME%-bin.tar.gz}
+URL_HASH=$(printf '%s' "$DIST_URL" | cksum | cut -d' ' -f1)
+MVN_ROOT="${MAVEN_USER_HOME:-$HOME/.m2}/wrapper/dists/$DIST_NAME/$URL_HASH"
+MVN_HOME="$MVN_ROOT/$DIST_NAME"
+
+if [ ! -x "$MVN_HOME/bin/mvn" ]; then
+  echo "mvnw: downloading $DIST_NAME ..." >&2
+  mkdir -p "$MVN_ROOT"
+  TMP_FILE="$MVN_ROOT/$ARCHIVE_NAME.part"
+  if command -v curl >/dev/null 2>&1; then
+    curl -fsSL "$DIST_URL" -o "$TMP_FILE"
+  elif command -v wget >/dev/null 2>&1; then
+    wget -q "$DIST_URL" -O "$TMP_FILE"
+  else
+    echo "mvnw: curl or wget is required to download Maven" >&2
+    exit 1
+  fi
+  tar -xzf "$TMP_FILE" -C "$MVN_ROOT"
+  rm -f "$TMP_FILE"
+fi
+
+exec "$MVN_HOME/bin/mvn" "$@"
