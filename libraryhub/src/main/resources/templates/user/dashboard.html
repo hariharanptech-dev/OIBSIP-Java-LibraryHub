@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Dashboard', ~{::main}, 'dashboard')}">
+<head><title>Dashboard</title></head>
+<body>
+<main id="main" class="container page" tabindex="-1">
+    <header class="page-header">
+        <div>
+            <h1 th:text="'Welcome back, ' + ${firstName}">Welcome back</h1>
+            <p class="page-sub">Here is what you have on loan and what needs your attention.</p>
+        </div>
+    </header>
+
+    <section class="stat-grid" aria-label="Your library summary">
+        <article class="stat-card">
+            <span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg></span>
+            <div>
+                <p class="stat-value num" th:text="${dashboard.activeLoans()}" th:attr="data-count=${dashboard.activeLoans()}">0</p>
+                <p class="stat-label">Books on loan</p>
+            </div>
+        </article>
+        <article class="stat-card">
+            <span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
+            <div>
+                <p class="stat-value num" th:text="${dashboard.dueSoon()}" th:attr="data-count=${dashboard.dueSoon()}">0</p>
+                <p class="stat-label">Due within 3 days</p>
+            </div>
+        </article>
+        <article class="stat-card">
+            <span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg></span>
+            <div>
+                <p class="stat-value num" th:text="${dashboard.overdue()}" th:attr="data-count=${dashboard.overdue()}">0</p>
+                <p class="stat-label">Overdue</p>
+            </div>
+        </article>
+        <article class="stat-card">
+            <span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#i-rupee"/></svg></span>
+            <div>
+                <p class="stat-value num" th:text="${@money.format(dashboard.unpaidFines())}">0</p>
+                <p class="stat-label">Unpaid fines</p>
+            </div>
+        </article>
+    </section>
+
+    <section class="card" aria-labelledby="loans-heading">
+        <div class="card-head">
+            <h2 id="loans-heading">Current loans</h2>
+        </div>
+
+        <div class="table-wrap" th:if="${!dashboard.loans().isEmpty()}">
+            <table class="table">
+                <caption class="sr-only">Books you currently have on loan</caption>
+                <thead>
+                <tr>
+                    <th scope="col">Book</th>
+                    <th scope="col">Issued</th>
+                    <th scope="col">Due</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" class="num-col">Fine so far</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item : ${dashboard.loans()}" th:classappend="${item.overdue()} ? 'row-overdue'">
+                    <td data-label="Book">
+                        <span class="cell-title" th:text="${item.loan().title()}">Title</span>
+                        <span class="cell-sub" th:text="${item.loan().author()}">Author</span>
+                    </td>
+                    <td data-label="Issued" th:text="${@dateUtil.date(item.loan().issueDate())}">1 Jan 2026</td>
+                    <td data-label="Due" th:text="${@dateUtil.date(item.loan().dueDate())}">15 Jan 2026</td>
+                    <td data-label="Status">
+                        <span class="badge" th:classappend="'badge-' + ${item.badge()}">
+                            <svg class="icon" aria-hidden="true"><use th:href="'#i-' + ${item.icon()}"/></svg>
+                            <span th:text="${item.label()}">Due in 5 days</span>
+                        </span>
+                    </td>
+                    <td data-label="Fine so far" class="num-col num"
+                        th:text="${item.overdue() ? @money.format(item.projectedFine()) : 'None'}">None</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p class="note" th:if="${dashboard.overdue() > 0}">
+            Overdue books are charged <span class="num" th:text="${@money.format(dashboard.finePerDay())}">Rs 5.00</span>
+            for each day after the due date. The fine is recorded when you return the book.
+        </p>
+
+        <div class="empty-state" th:if="${dashboard.loans().isEmpty()}">
+            <svg class="icon empty-icon" aria-hidden="true"><use href="#i-book"/></svg>
+            <h3>No books on loan</h3>
+            <p class="muted">Books you borrow will show up here with their due dates.</p>
+        </div>
+    </section>
+</main>
+</body>
+</html>

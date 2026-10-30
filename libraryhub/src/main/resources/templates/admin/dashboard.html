@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/admin-layout :: layout('Admin dashboard', ~{::main}, 'dashboard')}">
+<head><title>Admin dashboard</title></head>
+<body>
+<main id="main" class="admin-content" tabindex="-1">
+    <header class="page-header">
+        <div>
+            <h1>Dashboard</h1>
+            <p class="page-sub">The library at a glance.</p>
+        </div>
+    </header>
+
+    <section class="stat-grid" aria-label="Library summary">
+        <article class="stat-card">
+            <span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg></span>
+            <div>
+                <p class="stat-value num" th:text="${stats.totalTitles()}" th:attr="data-count=${stats.totalTitles()}">0</p>
+                <p class="stat-label">Total titles</p>
+            </div>
+        </article>
+        <article class="stat-card">
+            <span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#i-bookmark"/></svg></span>
+            <div>
+                <p class="stat-value num" th:text="${stats.totalCopies()}" th:attr="data-count=${stats.totalCopies()}">0</p>
+                <p class="stat-label">Total copies</p>
+            </div>
+        </article>
+        <article class="stat-card">
+            <span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span>
+            <div>
+                <p class="stat-value num" th:text="${stats.issuedNow()}" th:attr="data-count=${stats.issuedNow()}">0</p>
+                <p class="stat-label">Issued now</p>
+            </div>
+        </article>
+        <article class="stat-card" th:classappend="${stats.overdue() > 0} ? 'stat-alert'">
+            <span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg></span>
+            <div>
+                <p class="stat-value num" th:text="${stats.overdue()}" th:attr="data-count=${stats.overdue()}">0</p>
+                <p class="stat-label">Overdue</p>
+            </div>
+        </article>
+        <article class="stat-card">
+            <span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span>
+            <div>
+                <p class="stat-value num" th:text="${stats.members()}" th:attr="data-count=${stats.members()}">0</p>
+                <p class="stat-label">Members</p>
+            </div>
+        </article>
+        <article class="stat-card">
+            <span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#i-rupee"/></svg></span>
+            <div>
+                <p class="stat-value num" th:text="${@money.format(stats.unpaidFinesTotal())}">0</p>
+                <p class="stat-label">Unpaid fines</p>
+            </div>
+        </article>
+        <article class="stat-card">
+            <span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#i-message"/></svg></span>
+            <div>
+                <p class="stat-value num" th:text="${stats.newQueries()}" th:attr="data-count=${stats.newQueries()}">0</p>
+                <p class="stat-label">New queries</p>
+            </div>
+        </article>
+    </section>
+</main>
+</body>
+</html>

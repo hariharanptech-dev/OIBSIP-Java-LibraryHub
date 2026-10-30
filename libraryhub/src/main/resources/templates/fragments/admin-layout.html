@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout(title, content, active)">
+<head th:replace="~{fragments/head :: head(${title})}"></head>
+<body class="layout-admin" th:attr="data-page=${active}">
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<div class="admin-shell">
+    <aside class="admin-sidebar" id="admin-sidebar" aria-label="Admin navigation">
+        <a class="brand" th:href="@{/admin}" aria-label="LibraryHub admin home">
+            <span class="brand-mark" aria-hidden="true"><svg class="icon"><use href="#i-book"/></svg></span>
+            <span class="brand-name">LibraryHub</span>
+        </a>
+
+        <nav class="side-nav" aria-label="Admin">
+            <a class="side-link" th:href="@{/admin}" th:classappend="${active == 'dashboard'} ? 'is-active'"
+               th:attr="aria-current=${active == 'dashboard' ? 'page' : null}">
+                <svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg>
+                <span>Dashboard</span>
+            </a>
+            <a class="side-link" th:href="@{/}">
+                <svg class="icon" aria-hidden="true"><use href="#i-book"/></svg>
+                <span>View public site</span>
+            </a>
+        </nav>
+
+        <div class="side-footer">
+            <span class="user-chip">
+                <span class="avatar" aria-hidden="true" th:text="${currentUser != null ? currentUser.initials() : '?'}">AD</span>
+                <span class="user-name" th:text="${currentUser != null ? currentUser.name() : ''}">Admin</span>
+            </span>
+            <form th:action="@{/logout}" method="post" class="inline-form">
+                <button type="submit" class="btn btn-secondary btn-block">
+                    <svg class="icon" aria-hidden="true"><use href="#i-logout"/></svg>
+                    <span class="btn-label">Sign out</span>
+                </button>
+            </form>
+        </div>
+    </aside>
+    <div class="sidebar-backdrop" data-sidebar-close hidden></div>
+
+    <div class="admin-main">
+        <header class="admin-topbar">
+            <button type="button" class="btn btn-ghost btn-icon sidebar-toggle" data-sidebar-toggle
+                    aria-label="Open navigation" aria-controls="admin-sidebar" aria-expanded="false">
+                <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+            </button>
+            <p class="topbar-title">Admin panel</p>
+            <button type="button" class="btn btn-ghost btn-icon" data-theme-toggle aria-label="Switch to dark theme">
+                <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+                <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+            </button>
+        </header>
+
+        <div th:replace="~{fragments/flash :: flash}"></div>
+
+        <th:block th:replace="${content}"></th:block>
+    </div>
+</div>
+
+<svg th:replace="~{fragments/icons :: sprite}"></svg>
+<script th:src="@{/js/app.js}" defer></script>
+</body>
+</html>

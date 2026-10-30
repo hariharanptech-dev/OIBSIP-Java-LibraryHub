@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <title th:text="${title} + ' - LibraryHub'">LibraryHub</title>
+    <link rel="icon" type="image/svg+xml" th:href="@{/favicon.svg}">
+    <!-- Sets the saved theme before first paint, so there is no flash of the wrong theme. -->
+    <script th:src="@{/js/theme-init.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/theme.css}">
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+</html>

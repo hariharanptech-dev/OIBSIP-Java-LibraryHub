@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      th:replace="~{fragments/layout :: layout('Home', ~{::main}, 'home')}">
+<head><title>Home</title></head>
+<body>
+<main id="main" tabindex="-1">
+    <section class="hero">
+        <div class="container hero-inner">
+            <h1 class="hero-title">Your library, always in order</h1>
+            <p class="hero-lead">
+                LibraryHub keeps the catalogue, your loans, due dates and fines in one clear place,
+                for members and for the library desk.
+            </p>
+            <div class="hero-actions">
+                <th:block sec:authorize="isAnonymous()">
+                    <a class="btn btn-primary" th:href="@{/register}"><span class="btn-label">Create an account</span></a>
+                    <a class="btn btn-secondary" th:href="@{/login}"><span class="btn-label">Sign in</span></a>
+                </th:block>
+                <th:block sec:authorize="isAuthenticated()">
+                    <a class="btn btn-primary" th:href="@{${currentUser != null and currentUser.isAdmin() ? '/admin' : '/dashboard'}}">
+                        <span class="btn-label">Go to your dashboard</span>
+                    </a>
+                </th:block>
+            </div>
+
+            <dl class="hero-stats">
+                <div>
+                    <dt>Titles</dt>
+                    <dd class="num" th:text="${totals.titles()}">0</dd>
+                </div>
+                <div>
+                    <dt>Copies on the shelves</dt>
+                    <dd class="num" th:text="${totals.copies()}">0</dd>
+                </div>
+                <div>
+                    <dt>Members</dt>
+                    <dd class="num" th:text="${totals.members()}">0</dd>
+                </div>
+            </dl>
+        </div>
+    </section>
+</main>
+</body>
+</html>

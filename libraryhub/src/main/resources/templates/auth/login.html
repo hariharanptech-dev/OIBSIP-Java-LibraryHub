@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Sign in', ~{::main}, 'login')}">
+<head><title>Sign in</title></head>
+<body>
+<main id="main" class="auth-page" tabindex="-1">
+    <div class="auth-card">
+        <header class="auth-head">
+            <h1>Sign in</h1>
+            <p class="muted">Use the email and password for your LibraryHub account.</p>
+        </header>
+
+        <div class="alert alert-error" role="alert" th:if="${loginError != null}">
+            <svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>
+            <p th:text="${loginError}">Error</p>
+        </div>
+        <div class="alert alert-info" role="status" th:if="${loginNotice != null}">
+            <svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>
+            <p th:text="${loginNotice}">Notice</p>
+        </div>
+
+        <form th:action="@{/login}" method="post" class="form" novalidate data-validate>
+            <div class="field">
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email" autocomplete="username" required maxlength="120"
+                       th:value="${lastEmail}" aria-describedby="email-error">
+                <p class="field-error" id="email-error" hidden></p>
+            </div>
+
+            <div class="field">
+                <label for="password">Password</label>
+                <div class="input-group">
+                    <input id="password" name="password" type="password" autocomplete="current-password" required
+                           maxlength="72" aria-describedby="password-error">
+                    <button type="button" class="input-toggle" data-toggle-password="password" aria-label="Show password">
+                        <svg class="icon icon-eye" aria-hidden="true"><use href="#i-eye"/></svg>
+                        <svg class="icon icon-eye-off" aria-hidden="true"><use href="#i-eye-off"/></svg>
+                    </button>
+                </div>
+                <p class="field-error" id="password-error" hidden></p>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+                <span class="btn-label">Sign in</span>
+                <span class="spinner" aria-hidden="true"></span>
+            </button>
+        </form>
+
+        <p class="auth-switch">New to LibraryHub? <a th:href="@{/register}">Create an account</a></p>
+
+        <details class="demo-box" th:if="${showDemo}">
+            <summary>Demo accounts</summary>
+            <p class="muted">Choose an account to fill in the form, then press Sign in.</p>
+            <ul class="demo-list">
+                <li th:each="account : ${demoAccounts}">
+                    <button type="button" class="demo-fill"
+                            th:data-email="${account.email()}" th:data-password="${account.password()}">
+                        <span class="demo-role" th:text="${account.role()}">Role</span>
+                        <span class="demo-email" th:text="${account.email()}">email</span>
+                        <span class="demo-pass" th:text="${account.password()}">password</span>
+                    </button>
+                </li>
+            </ul>
+        </details>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<!-- One-time messages passed through redirects. app.js adds the dismiss button and auto-hide. -->
+<div th:fragment="flash" class="flash-region" role="region" aria-label="Notifications" aria-live="polite">
+    <div th:if="${toast != null}" class="flash" th:classappend="'flash-' + ${toast.type()}" data-flash>
+        <svg class="icon" aria-hidden="true"><use th:href="'#i-' + ${toast.icon()}"/></svg>
+        <p class="flash-text" th:text="${toast.message()}">Message</p>
+    </div>
+</div>
+</body>
+</html>
